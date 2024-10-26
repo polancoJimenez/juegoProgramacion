@@ -1,6 +1,9 @@
-public class App {
-    public static void main(String[] args) throws Exception {
-        // Clase Heroe
+import java.util.Random;
+import java.util.Scanner;
+
+public class Game {
+
+    // Clase Heroe
     static class Heroe {
         private int ataque;
         private int defensa;
@@ -75,5 +78,53 @@ public class App {
             System.out.println("¡El Villano se está defendiendo!");
         }
     }
+
+    public static void main(String[] args) {
+        Heroe heroe = new Heroe(15, 5);
+        Villano villano = new Villano(12, 6);
+        Scanner escaner = new Scanner(System.in);
+        Random aleatorio = new Random();
+
+        // Asignación aleatoria de personaje al usuario
+        boolean usuarioEsHeroe = aleatorio.nextBoolean();
+        String personajeUsuario = usuarioEsHeroe ? "Héroe" : "Villano";
+        System.out.println("¡Felicidades! Has ganado el puesto de " + personajeUsuario + ". ¡Buena suerte!");
+        System.out.println("¡Comienza la batalla!");
+
+        while (heroe.getSalud() > 0 && villano.getSalud() > 0) {
+            System.out.println("Elige una acción:");
+            System.out.println("1. " + personajeUsuario + " ataca");
+            System.out.println("2. " + personajeUsuario + " se defiende");
+
+            int eleccion = escaner.nextInt();
+            if (eleccion == 1) {
+                if (usuarioEsHeroe) {
+                    heroe.atacar(villano);
+                    if (villano.getSalud() > 0) villano.atacar(heroe);
+                } else {
+                    villano.atacar(heroe);
+                    if (heroe.getSalud() > 0) heroe.atacar(villano);
+                }
+            } else if (eleccion == 2) {
+                if (usuarioEsHeroe) {
+                    heroe.defender();
+                    if (villano.getSalud() > 0) villano.atacar(heroe);
+                } else {
+                    villano.defender();
+                    if (heroe.getSalud() > 0) heroe.atacar(villano);
+                }
+            } else {
+                System.out.println("Opción inválida. Por favor, selecciona 1 o 2.");
+            }
+
+            System.out.println("----------------------------");
+
+            if (heroe.getSalud() == 0 || villano.getSalud() == 0) {
+                break;
+            }
+        }
+
+        System.out.println(heroe.getSalud() > 0 ? "¡El Héroe ha ganado!" : "¡El Villano ha ganado!");
+        escaner.close();
     }
 }

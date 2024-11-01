@@ -63,7 +63,7 @@ public class proyecto {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Heroe doom = new Heroe("DOOM", 100, 25, 10);
-        enemigo hank = new enemigo("HANK", 80, 20, 8);
+        enemigo hank = new enemigo("HANK", 100, 23, 9);
 
         System.out.println("¡Comienza la batalla entre " + doom.nombre + " y " + hank.nombre + "!\n");
 

@@ -37,4 +37,4 @@ LO QUE SE MUESTRA EN CONSOLA
 NOTAS ACERCA DEL JUEGO 
 El juego aun no cuenta con una historia, solo son es una simulacion de una batalla el cual hay un ganador y vencedor
 
-esperen las proximas actualizaciones!!
+esperen las proximas actualizaciones!!!

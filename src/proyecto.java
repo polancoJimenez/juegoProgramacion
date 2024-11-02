@@ -34,7 +34,7 @@ class Heroe extends atributos {
         this.defensa = defensa;
     }
 
-    // metodo para que solo el heroe pueda defenderse
+    // metodo para que pueda defenderse
     public void defendiendo() {
         this.defensa += 5; //este metodo hace que el heroe aumente su vida al defenderse 
         System.out.println(this.nombre + " se defiende, aumentando su defensa en 5 puntos.");
